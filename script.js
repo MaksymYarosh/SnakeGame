@@ -6,7 +6,7 @@ const tileCount = canvas.width / gridSize;
 
 let snake = [{ x: 10, y: 10 }];
 let apple = { x: 5, y: 5 };
-let dx = 0;
+let dx = 1;  // ➔ Start moving right
 let dy = 0;
 let score = 0;
 
@@ -48,6 +48,7 @@ function draw() {
     ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize - 2, gridSize - 2);
 
     ctx.fillStyle = '#fff';
+    ctx.font = '16px Arial';
     ctx.fillText('Score: ' + score, 10, canvas.height - 10);
 }
 
@@ -62,7 +63,7 @@ function checkCollision(pos) {
 
 function resetGame() {
     snake = [{ x: 10, y: 10 }];
-    dx = 0;
+    dx = 1;  // ➔ Start moving right again
     dy = 0;
     score = 0;
     placeApple();
